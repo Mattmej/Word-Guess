@@ -30,16 +30,34 @@ depending on whether or not the user has guessed the letter. That means the cons
 
 
 
-function Letter(string) {
-    this.wordArray = string.split("");
-    this.blankArray = [];
+function Letter(letter) {
 
-    for (i = 0; i < wordArray.length; i++) {
-        blankArray.push("_");
+    this.guessCorrect = false;
+
+    this.displayLetter = function() {
+        if (this.guessCorrect === true) {
+            console.log(letter);
+        }
+
+        else {
+            console.log("_");
+        }
     }
 
-    console.log(blankArray);
+    this.checkLetter = function(guess) {
+        if (guess === letter) {
+            this.guessCorrect = true;
+            console.log(this.guessCorrect);
+        }
+    }
 
 }
 
-Letter("Johnny");
+// Letter("Johnny");
+
+var char1 = new Letter("J");
+
+char1.checkLetter("J");
+char1.displayLetter();
+
+// Letter("J").checkLetter("J");
