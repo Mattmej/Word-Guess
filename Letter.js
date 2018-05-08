@@ -53,11 +53,13 @@ function Letter(letter) {
 
 }
 
+module.exports = Letter;
+
 // Letter("Johnny");
 
-var char1 = new Letter("J");
+// var char1 = new Letter("J");
 
-char1.checkLetter("J");
-char1.displayLetter();
+// char1.checkLetter("J");
+// char1.displayLetter();
 
 // Letter("J").checkLetter("J");
