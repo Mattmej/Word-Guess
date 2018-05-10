@@ -33,14 +33,17 @@ depending on whether or not the user has guessed the letter. That means the cons
 function Letter(letter) {
 
     this.guessCorrect = false;
+    this.loggedLetter;
 
     this.displayLetter = function() {
         if (this.guessCorrect === true) {
-            console.log(letter);
+            this.loggedLetter = letter;
+            // console.log(letter);
         }
 
         else {
-            console.log("_");
+            this.loggedLetter = "_";
+            // console.log("_");
         }
     }
 
