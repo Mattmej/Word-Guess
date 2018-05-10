@@ -52,29 +52,38 @@ function Word(word) {
     // The word (and/or blanks) to be displayed to the console.
     this.displayedWord;
 
+    for (i = 0; i < this.wordArray.length; i++) {
+            
+        this.newWordArray[i] = this.wordArray[i].split("");
+        this.objectWordArray.push([]);
+        // now newWordArray = [ [T,h,i,s] , [i,s], [a], [s,e,n,t,e,n,c,e] ]
+
+        for (j = 0; j < this.newWordArray[i].length; j++) {
+            var wordLetter = new Letter(this.newWordArray[i][j]);
+            wordLetter.displayLetter();
+            // this.objectWordArray[i][j] = (wordLetter.loggedLetter);
+            this.objectWordArray[i].push(wordLetter);
+        }
+
+    }
+
+
     this.wordFromLetters = function() {
 
         // takes each letter in the wordArray sub-arrays and turns those letters into Letter objects.
         // Stores a property of each letter object into the newWordArray
-        for (i = 0; i < this.wordArray.length; i++) {
-            
-            this.newWordArray[i] = this.wordArray[i].split("");
-            this.objectWordArray.push([]);
-            // now newWordArray = [ [T,h,i,s] , [i,s], [a], [s,e,n,t,e,n,c,e] ]
+        
+        
 
-            for (j = 0; j < this.newWordArray[i].length; j++) {
-                var wordLetter = new Letter(this.newWordArray[i][j]);
-                wordLetter.displayLetter();
-                this.objectWordArray[i][j] = (wordLetter.loggedLetter);
-            }
-
-            this.loggedWordArray[i] = this.objectWordArray[i].join(" ");
-        }
+        this.loggedWordArray[i] = this.objectWordArray[i].join(" ");
 
         this.displayedWord = this.loggedWordArray.join("   ");
         // console.log(this.newWordArray);
         console.log(this.displayedWord);
     }
+
+        
+   
 
     this.checkUserArgs = function(argument) {
         
@@ -91,6 +100,8 @@ function Word(word) {
             }
         }
 
+        // console.log(argument);
+
     }
    
 }
@@ -104,4 +115,8 @@ var newWord = new Word("Banana");
 // console.log(newWord.wordLetterArray);
 // newWord.wordFromLetters()
 
-newWord.checkUserArgs(process.argv[3]);
+// newWord.checkUserArgs(process.argv[2]);
+// console.log(process.argv[2]);
+
+// console.log(newWord.objectWordArray);
+// console.log(newWord.newWordArray);
