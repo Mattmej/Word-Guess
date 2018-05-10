@@ -72,6 +72,7 @@ function Word(word) {
     }
 
 
+    // This function will display the "current status" of the guessed word to the console.
     this.wordFromLetters = function() {
 
         // takes each letter in the wordArray sub-arrays and turns those letters into Letter objects.
@@ -83,7 +84,11 @@ function Word(word) {
             this.objectWordArray2.push([]);
 
             for (j = 0; j < this.objectWordArray[i].length; j++) {
+
                 // var tempLetter = this.objectWordArray[i][j].displayLetter();
+
+                // If the guessCorrect parameter is true for the object, then the Letter object's
+                // loggedLetter property will equal newWordArray[i][j]
                 this.objectWordArray[i][j].displayLetter();
 
                 // holds the loggedLetter property of the Letter object (letter to be displayed)
@@ -91,12 +96,16 @@ function Word(word) {
 
                 // puts the loggedLetter property of the Letter object into an array of the objectWordArray2
                 this.objectWordArray2[i].push(tempLetter)
+
             }
 
             // loggedWordArray consists of a number of strings that equal the words of the phrase to be guessed.
             // These strings will contain characters, blanks, or both.
             // e.g. ['t _ _ _', '_ _', '_', '_ _ _ t _ _ _ _']
             this.loggedWordArray[i] = this.objectWordArray2[i].join(" ");
+
+            // console.log(this.objectWordArray[i].guessCorrect);
+
 
         }
 
@@ -105,28 +114,40 @@ function Word(word) {
         // displayedWord will take the blanks and concatenate them into one big string.
         // e.g. t _ _ _   _ _   _   _ _ _ t _ _ _ _
         this.displayedWord = this.loggedWordArray.join("   ");
+
         // // console.log(this.newWordArray);
+
+        // shows the displayed word to the console.
         console.log(this.displayedWord);
+
         // console.log(this.objectWordArray2);
     }
 
         
    
 
+    // This function checks each Letter object against the argument.
     this.checkUserArgs = function(argument) {
         
-        // we will make argument = process.argv[3]
+        // we will make argument = process.argv[2]
 
         if (argument.length != 1) {
             console.log("Please enter a single character!");
         }
 
         else {
+
+            // Loops through each word
             for (i = 0; i < this.objectWordArray.length; i++) {
 
+                // Loops through each letter
                 for (j = 0; j < this.objectWordArray[i].length; j++) {
 
                     this.objectWordArray[i][j].checkLetter(argument);
+                    /*
+                    What this does:
+                    1. If the argument equals the letter, then sets the letter's property guessCorrect = true
+                    */
 
                 }
                 
