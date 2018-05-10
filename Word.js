@@ -79,20 +79,31 @@ function Word(word) {
         
         for (i = 0; i < this.objectWordArray.length; i++) {
 
+            // pushes a new array into this objectWordArray2
             this.objectWordArray2.push([]);
 
             for (j = 0; j < this.objectWordArray[i].length; j++) {
                 // var tempLetter = this.objectWordArray[i][j].displayLetter();
                 this.objectWordArray[i][j].displayLetter();
+
+                // holds the loggedLetter property of the Letter object (letter to be displayed)
                 var tempLetter = this.objectWordArray[i][j].loggedLetter;
+
+                // puts the loggedLetter property of the Letter object into an array of the objectWordArray2
                 this.objectWordArray2[i].push(tempLetter)
             }
 
+            // loggedWordArray consists of a number of strings that equal the words of the phrase to be guessed.
+            // These strings will contain characters, blanks, or both.
+            // e.g. ['t _ _ _', '_ _', '_', '_ _ _ t _ _ _ _']
             this.loggedWordArray[i] = this.objectWordArray2[i].join(" ");
 
         }
 
+        // console.log(this.loggedWordArray);
 
+        // displayedWord will take the blanks and concatenate them into one big string.
+        // e.g. t _ _ _   _ _   _   _ _ _ t _ _ _ _
         this.displayedWord = this.loggedWordArray.join("   ");
         // // console.log(this.newWordArray);
         console.log(this.displayedWord);
@@ -112,9 +123,16 @@ function Word(word) {
 
         else {
             for (i = 0; i < this.objectWordArray.length; i++) {
-                this.objectWordArray[i].checkLetter(argument);
-                this.wordFromLetters();
+
+                for (j = 0; j < this.objectWordArray[i].length; j++) {
+
+                    this.objectWordArray[i][j].checkLetter(argument);
+
+                }
+                
             }
+
+            this.wordFromLetters();
         }
 
         // console.log(argument);
@@ -130,10 +148,11 @@ function Word(word) {
 
 var newWord = new Word("This is a sentence")
 // console.log(newWord.wordLetterArray);
-newWord.wordFromLetters()
+// newWord.wordFromLetters()
 
-// newWord.checkUserArgs(process.argv[2]);
+newWord.checkUserArgs(process.argv[2]);
 // console.log(process.argv[2]);
 
 // console.log(newWord.objectWordArray[1]);
+// console.log(newWord.objectWordArray[0]);
 // console.log(newWord.newWordArray);
