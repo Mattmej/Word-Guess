@@ -75,14 +75,33 @@ function Word(word) {
         // console.log(this.newWordArray);
         console.log(this.displayedWord);
     }
+
+    this.checkUserArgs = function(argument) {
+        
+        // we will make argument = process.argv[3]
+
+        if (argument.length != 1) {
+            console.log("Please enter a single character!");
+        }
+
+        else {
+            for (i = 0; i < this.objectWordArray.length; i++) {
+                this.objectWordArray[i].checkLetter(argument);
+                this.wordFromLetters();
+            }
+        }
+
+    }
    
 }
 
 // Testing stuff
-// var newWord = new Word("Banana");
+var newWord = new Word("Banana");
 // console.log(newWord.wordLetterArray)
 // newWord.wordFromLetters();
 
 // var newWord = new Word("This is a sentence")
 // console.log(newWord.wordLetterArray);
 // newWord.wordFromLetters()
+
+newWord.checkUserArgs(process.argv[3]);

@@ -50,7 +50,7 @@ function Letter(letter) {
     this.checkLetter = function(guess) {
         if (guess === letter) {
             this.guessCorrect = true;
-            console.log(this.guessCorrect);
+            // console.log(this.guessCorrect);
         }
     }
 
