@@ -30,40 +30,88 @@ function Word(word) {
     // this.letterArray = word.split("");
 
     // This will hold each word of the phrase.
+    // e.g. word = "This is a sentence"
+    // wordArray = ['This', 'is', 'a', 'sentence']
     this.wordArray = word.split(" ");
     // this.letterArray = [];
 
-    // e.g. word = "This is a sentence"
-    // wordArray = ['This', 'is', 'a', 'sentence']
-    for (i = 0; i < wordArray.length; i++) {
-        wordArray[i] = wordArray[i].split("");
-        // now wordArray = [ [T,h,i,s] , [i,s], [a], [s,e,n,t,e,n,c,e] ]
+    this.newWordArray = [];
+    this.displayedWord;
+
+    this.wordFromLetters = function() {
+
+        // takes each letter in the wordArray sub-arrays and turns those letters into Letter objects.
+        // Stores a property of each letter object into the newWordArray
+        for (i = 0; i < this.wordArray.length; i++) {
+            this.wordArray[i] = this.wordArray[i].split("");
+            this.newWordArray.push(this.wordArray[i]);
+            // now wordArray = [ [T,h,i,s] , [i,s], [a], [s,e,n,t,e,n,c,e] ]
+
+            for (j = 0; j < this.wordArray[i].length; j++) {
+                var wordLetter = new Letter(this.wordArray[i][j]);
+                wordLetter.displayLetter();
+                this.newWordArray[i][j] = (wordLetter.loggedLetter);
+
+            }
+
+            this.newWordArray[i] = this.newWordArray[i].join(" ");
+        }
+
+        this.displayedWord = this.newWordArray.join("   ");
+        // console.log(this.newWordArray);
+        console.log(this.displayedWord);
+        
     }
 
-    // Array that will hold the letters of the word
-    this.wordLetterArray = [];
-    this.guessWord = "";
+    // // Array that will hold the letters of the word
+    // this.wordLetterArray = [];
+    // this.guessWord = "";
 
-    // This loop will put the letters of the word into wordArray
-    for (i = 0; i < this.letterArray.length; i++) {
 
-        // creates a new Letter object
-        var wordLetter = new Letter(this.letterArray[i]);
-        wordLetter.displayLetter();
-        this.wordLetterArray.push(wordLetter.loggedLetter);
-    }
 
-    // Concatenates the characters in the letter objects
-    this.wordFromLetters = function(wordLetterArray) {
-        this.guessWord = this.wordLetterArray.join(" ");
-        console.log(this.guessWord);
 
-        // for (i = 0; i < wordLetterArray.length; i++) {
-        //     this.guessWord += wordLetterArray[i];
-        //     console.log(this.guessWord);
-        // }
 
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//     // This loop will put the letters of the word into wordArray
+//     for (i = 0; i < this.letterArray.length; i++) {
+
+//         // creates a new Letter object
+//         var wordLetter = new Letter(this.letterArray[i]);
+//         wordLetter.displayLetter();
+//         this.wordLetterArray.push(wordLetter.loggedLetter);
+//     }
+
+//     // Concatenates the characters in the letter objects
+//     this.wordFromLetters = function(wordLetterArray) {
+//         this.guessWord = this.wordLetterArray.join(" ");
+//         console.log(this.guessWord);
+
+//         // for (i = 0; i < wordLetterArray.length; i++) {
+//         //     this.guessWord += wordLetterArray[i];
+//         //     console.log(this.guessWord);
+//         // }
+
+//     }
+// }
 }
 
 // Testing stuff
