@@ -23,6 +23,8 @@ Troubleshooting:
         v. Take each array in (iii) and join their items into a string.
         vi. Join the array in (ii) with spaces between each word.
 
+    B. Result of attempt 1: Success!
+
 */
 
 // NOTE: The word can be a phrase.
@@ -55,8 +57,7 @@ function Word(word) {
         // takes each letter in the wordArray sub-arrays and turns those letters into Letter objects.
         // Stores a property of each letter object into the newWordArray
         for (i = 0; i < this.wordArray.length; i++) {
-            // this.wordArray[i] = this.wordArray[i].split("");
-            // this.newWordArray.push(this.wordArray[i]);
+            
             this.newWordArray[i] = this.wordArray[i].split("");
             this.objectWordArray.push([]);
             // now newWordArray = [ [T,h,i,s] , [i,s], [a], [s,e,n,t,e,n,c,e] ]
@@ -65,8 +66,6 @@ function Word(word) {
                 var wordLetter = new Letter(this.newWordArray[i][j]);
                 wordLetter.displayLetter();
                 this.objectWordArray[i][j] = (wordLetter.loggedLetter);
-                
-
             }
 
             this.loggedWordArray[i] = this.objectWordArray[i].join(" ");
@@ -75,35 +74,8 @@ function Word(word) {
         this.displayedWord = this.loggedWordArray.join("   ");
         // console.log(this.newWordArray);
         console.log(this.displayedWord);
-        
     }
-
-    // // Array that will hold the letters of the word
-    // this.wordLetterArray = [];
-    // this.guessWord = "";
-
-
-//     // This loop will put the letters of the word into wordArray
-//     for (i = 0; i < this.letterArray.length; i++) {
-
-//         // creates a new Letter object
-//         var wordLetter = new Letter(this.letterArray[i]);
-//         wordLetter.displayLetter();
-//         this.wordLetterArray.push(wordLetter.loggedLetter);
-//     }
-
-//     // Concatenates the characters in the letter objects
-//     this.wordFromLetters = function(wordLetterArray) {
-//         this.guessWord = this.wordLetterArray.join(" ");
-//         console.log(this.guessWord);
-
-//         // for (i = 0; i < wordLetterArray.length; i++) {
-//         //     this.guessWord += wordLetterArray[i];
-//         //     console.log(this.guessWord);
-//         // }
-
-//     }
-// }
+   
 }
 
 // Testing stuff
@@ -111,10 +83,6 @@ function Word(word) {
 // console.log(newWord.wordLetterArray)
 // newWord.wordFromLetters();
 
-var newWord = new Word("This is a sentence")
+// var newWord = new Word("This is a sentence")
 // console.log(newWord.wordLetterArray);
-newWord.wordFromLetters()
-
-
-
-// newWord.wordFromLetters();
+// newWord.wordFromLetters()
