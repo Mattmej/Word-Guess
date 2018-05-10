@@ -45,6 +45,8 @@ function Word(word) {
     // but each character will be a new Letter object.
     this.objectWordArray = [];
 
+    this.objectWordArray2 = [];
+
     // This array will hold the Letter objects' displayLetter loggedLetters (see Letter.js)
     // in preparation for displaying to the console.
     this.loggedWordArray = [];
@@ -52,15 +54,17 @@ function Word(word) {
     // The word (and/or blanks) to be displayed to the console.
     this.displayedWord;
 
+    // loops through each word of the phrase
     for (i = 0; i < this.wordArray.length; i++) {
             
         this.newWordArray[i] = this.wordArray[i].split("");
         this.objectWordArray.push([]);
         // now newWordArray = [ [T,h,i,s] , [i,s], [a], [s,e,n,t,e,n,c,e] ]
 
+        // loops through each letter of each word
         for (j = 0; j < this.newWordArray[i].length; j++) {
             var wordLetter = new Letter(this.newWordArray[i][j]);
-            wordLetter.displayLetter();
+            // wordLetter.displayLetter();
             // this.objectWordArray[i][j] = (wordLetter.loggedLetter);
             this.objectWordArray[i].push(wordLetter);
         }
@@ -73,13 +77,26 @@ function Word(word) {
         // takes each letter in the wordArray sub-arrays and turns those letters into Letter objects.
         // Stores a property of each letter object into the newWordArray
         
-        
+        for (i = 0; i < this.objectWordArray.length; i++) {
 
-        this.loggedWordArray[i] = this.objectWordArray[i].join(" ");
+            this.objectWordArray2.push([]);
+
+            for (j = 0; j < this.objectWordArray[i].length; j++) {
+                // var tempLetter = this.objectWordArray[i][j].displayLetter();
+                this.objectWordArray[i][j].displayLetter();
+                var tempLetter = this.objectWordArray[i][j].loggedLetter;
+                this.objectWordArray2[i].push(tempLetter)
+            }
+
+            this.loggedWordArray[i] = this.objectWordArray2[i].join(" ");
+
+        }
+
 
         this.displayedWord = this.loggedWordArray.join("   ");
-        // console.log(this.newWordArray);
+        // // console.log(this.newWordArray);
         console.log(this.displayedWord);
+        // console.log(this.objectWordArray2);
     }
 
         
@@ -107,16 +124,16 @@ function Word(word) {
 }
 
 // Testing stuff
-var newWord = new Word("Banana");
+// var newWord = new Word("Banana");
 // console.log(newWord.wordLetterArray)
 // newWord.wordFromLetters();
 
-// var newWord = new Word("This is a sentence")
+var newWord = new Word("This is a sentence")
 // console.log(newWord.wordLetterArray);
-// newWord.wordFromLetters()
+newWord.wordFromLetters()
 
 // newWord.checkUserArgs(process.argv[2]);
 // console.log(process.argv[2]);
 
-// console.log(newWord.objectWordArray);
+// console.log(newWord.objectWordArray[1]);
 // console.log(newWord.newWordArray);
