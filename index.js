@@ -4,7 +4,8 @@ var Word = require("./Word.js");
 
 var wordList = ["sesquipedalian", "harmonious", "hot dog on a stick", "cowboy", "hereafter"];
 
-var tries = 10;
+// var tries = 10;
+var tries;
 
 var currentWord;
 var randIndex;
@@ -19,6 +20,7 @@ function chooseNewWord() {
     // console.log(randIndex);
 
     currentWord = new Word(wordList[randIndex]);
+    tries = wordList[randIndex].length + 5;
 
     currentWord.wordFromLetters();
 
@@ -69,9 +71,12 @@ function askLetter() {
 
         
 
-        if (currentWord.displayedWord === wordList[randIndex]) {
-            console.log("You Win!");
-            tries = 10;
+        if (currentWord.displayedWord === wordList[randIndex].split("").join(" ")) {
+            console.log("\nYou Win!");
+            console.log("Now for a new word!");
+            // tries = 10;
+            // tries = currentWord.length + 5;
+
             chooseNewWord();
         }
 

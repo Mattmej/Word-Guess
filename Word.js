@@ -161,7 +161,7 @@ function Word(word) {
         // // console.log(this.newWordArray);
 
         // shows the displayed word to the console.
-        console.log(this.displayedWord);
+        console.log("\n" + this.displayedWord);
 
         // console.log(this.objectWordArray2);
     }
