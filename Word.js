@@ -184,10 +184,10 @@ function Word(word) {
             for (i = 0; i < this.objectWordArray.length; i++) {
 
                 // Loops through each letter
-                for (j = 0; j < this.objectWordArray[i].length; j++) {
+                for (j = 0; j < this.newWordArray[i].length; j++) {
                     // this.objectWordArray[i][j].guessCorrect === false;
 
-
+                    // checks if the letter of the word to be guessed is equal to the letter user entered.
                     this.objectWordArray[i][j].checkLetter(argument);
                     /*
                     What this does:
@@ -196,7 +196,13 @@ function Word(word) {
 
                     // var choseCorrectLetter = false
 
-                    if (this.objectWordArray[i][j].guessCorrect === true) {
+
+                    // check if the letter user entered is correct.
+                    // if (this.objectWordArray[i][j].guessCorrect === true) {
+                    //     this.choseCorrectLetter = true;
+                    // }
+
+                    if (this.newWordArray[i].includes(argument)) {
                         this.choseCorrectLetter = true;
                     }
 
