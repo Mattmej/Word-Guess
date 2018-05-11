@@ -20,7 +20,7 @@ function chooseNewWord() {
     // console.log(randIndex);
 
     currentWord = new Word(wordList[randIndex]);
-    tries = wordList[randIndex].length + 5;
+    tries = wordList[randIndex].length + 3;
 
     currentWord.wordFromLetters();
 
@@ -40,57 +40,63 @@ function askLetter() {
 
     if (tries === 0) {
         console.log("\nYou Lose!");
+
+        playAgain();
         // return;
-        process.exit();
+        // process.exit();
     }
 
-    console.log("\nNumber of tries left: " + tries + "\n");
+    else {
 
-    // Asks the user for input...
-    inquirer.prompt([
-        {
-            type: "input",
-            message: "Guess a letter!",
-            name: "userGuess",
-            // validate: function
+        console.log("\nNumber of tries left: " + tries + "\n");
 
-        },
-    ])
+        // Asks the user for input...
+        inquirer.prompt([
+            {
+                type: "input",
+                message: "Guess a letter!",
+                name: "userGuess",
+                // validate: function
 
-    // ...then performs the following:
-    .then (function(response) {
+            },
+        ])
 
-        // tries--;
+        // ...then performs the following:
+        .then (function(response) {
 
-        if (response.userGuess.length = 1) {
-            tries--;
-        }
-        currentWord.checkUserArgs(response.userGuess);
-        // askLetter();
-        // guessString = currentWord.displayedWord;
+            // tries--;
 
-        
+            if (response.userGuess.length === 1) {
+                tries--;
+            }
+            currentWord.checkUserArgs(response.userGuess);
+            // askLetter();
+            // guessString = currentWord.displayedWord;
 
-        if (currentWord.displayedWord === wordList[randIndex].split("").join(" ")) {
-            console.log("\nYou Win!");
+            
 
-            playAgain();
+            if (currentWord.displayedWord === wordList[randIndex].split("").join(" ")) {
+                console.log("\nYou Win!");
 
-
-            // console.log("Now for a new word!");
-            // tries = 10;
-            // tries = currentWord.length + 5;
-
-            // chooseNewWord();
-        }
-
-        else {
-            askLetter();
-        }
+                playAgain();
 
 
-    });
+                // console.log("Now for a new word!");
+                // tries = 10;
+                // tries = currentWord.length + 5;
 
+                // chooseNewWord();
+            }
+
+            else {
+                askLetter();
+            }
+
+            
+
+
+        });
+    }
 }
 
 function playAgain() {
