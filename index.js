@@ -73,11 +73,15 @@ function askLetter() {
 
         if (currentWord.displayedWord === wordList[randIndex].split("").join(" ")) {
             console.log("\nYou Win!");
-            console.log("Now for a new word!");
+
+            playAgain();
+
+
+            // console.log("Now for a new word!");
             // tries = 10;
             // tries = currentWord.length + 5;
 
-            chooseNewWord();
+            // chooseNewWord();
         }
 
         else {
@@ -89,11 +93,25 @@ function askLetter() {
 
 }
 
+function playAgain() {
+    inquirer.prompt([
+        {
+            type: "confirm",
+            message: "Play Again?",
+            name: "answer"
+        }
 
+    ])
+    .then (function(response) {
 
-function charOnly(userGuess) {
-    if (userGuess.length = 0 || userGuess.length > 1) {
-        return "Please enter a single character!";
-    }
+        if (response.answer === true) {
+            chooseNewWord();
+        }
+
+        else {
+            process.exit();
+        }
+    })
+
 }
 
