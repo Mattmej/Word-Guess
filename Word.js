@@ -56,12 +56,28 @@ function Word(word) {
 
     this.choseCorrectLetter = false;
 
+    // this.savedWordArray = []
+
+    // creating a savedWordArray of blanks. 
+    // These blanks will be replaced as words are guessed.
+    // Also creates an array of subarrays.
+    // Each subarray has the letters of a word as elements.
+    for (i = 0; i < this.wordArray.length; i++) {                                       // looping through words
+        this.newWordArray[i] = this.wordArray[i].split("");
+        // now newWordArray = [ [T,h,i,s] , [i,s], [a], [s,e,n,t,e,n,c,e] ]
+
+        // Looping through letters and creating the savedWordArray
+        for (j = 0; j < newWordArray[i]; j++) {
+            this.savedWordArray[i][j] = "_";
+        }
+
+        
+    }
+
     // loops through each word of the phrase
     for (i = 0; i < this.wordArray.length; i++) {
             
-        this.newWordArray[i] = this.wordArray[i].split("");
         this.objectWordArray.push([]);
-        // now newWordArray = [ [T,h,i,s] , [i,s], [a], [s,e,n,t,e,n,c,e] ]
 
         // loops through each letter of each word
         for (j = 0; j < this.newWordArray[i].length; j++) {
@@ -192,7 +208,12 @@ function Word(word) {
            
     }
 
-        // console.log(argument);
+    // console.log(argument);
+
+    this.saveWord = function(loggedWordArray) {
+        this.savedWordArray = loggedWordArray;
+
+    }
 
 }
 

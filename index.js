@@ -13,6 +13,8 @@ var currentWord = new Word(wordList[randIndex]);
 
 var tries = 10;
 
+// var guessString = "";
+
 function askLetter() {
 
     // Asks the user for input...
@@ -29,6 +31,7 @@ function askLetter() {
     .then (function(response) {
 
         currentWord.checkUserArgs(response.userGuess);
+        // guessString = currentWord.displayedWord;
 
 
 
