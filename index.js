@@ -20,6 +20,9 @@ function chooseNewWord() {
 
     currentWord = new Word(wordList[randIndex]);
 
+    currentWord.wordFromLetters();
+
+
     askLetter();
 
 }
@@ -34,12 +37,12 @@ chooseNewWord();
 function askLetter() {
 
     if (tries === 0) {
-        console.log("You Lose!");
+        console.log("\nYou Lose!");
         // return;
         process.exit();
     }
 
-    console.log(tries);
+    console.log("\nNumber of tries left: " + tries + "\n");
 
     // Asks the user for input...
     inquirer.prompt([
@@ -55,13 +58,20 @@ function askLetter() {
     // ...then performs the following:
     .then (function(response) {
 
-        tries--;
+        // tries--;
+
+        if (response.userGuess.length = 1) {
+            tries--;
+        }
         currentWord.checkUserArgs(response.userGuess);
         // askLetter();
         // guessString = currentWord.displayedWord;
 
+        
+
         if (currentWord.displayedWord === wordList[randIndex]) {
             console.log("You Win!");
+            tries = 10;
             chooseNewWord();
         }
 
