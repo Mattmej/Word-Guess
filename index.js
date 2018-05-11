@@ -11,24 +11,32 @@ var randIndex = Math.floor(Math.random * wordList.length);
 
 var currentWord = new Word(wordList[randIndex]);
 
-// Asks the user for input...
-inquirer.prompt([
-    {
-        type: "input",
-        message: "Guess a letter!",
-        name: "userGuess",
-        // validate: function
-    },
-])
+var tries = 10;
 
-// ...then performs the following:
-.then (function(response) {
+function askLetter() {
 
-    currentWord.checkUserArgs(response.userGuess);
+    // Asks the user for input...
+    inquirer.prompt([
+        {
+            type: "input",
+            message: "Guess a letter!",
+            name: "userGuess",
+            // validate: function
+        },
+    ])
+
+    // ...then performs the following:
+    .then (function(response) {
+
+        currentWord.checkUserArgs(response.userGuess);
 
 
 
-});
+    });
+
+}
+
+
 
 function charOnly(userGuess) {
     if (userGuess.length = 0 || userGuess.length > 1) {
