@@ -45,6 +45,7 @@ function Word(word) {
     // but each character will be a new Letter object.
     this.objectWordArray = [];
 
+    // a "temporary array" meant to ease the transition from objectWordArray to loggedWordArray.
     this.objectWordArray2 = [];
 
     // This array will hold the Letter objects' displayLetter loggedLetters (see Letter.js)
@@ -56,7 +57,7 @@ function Word(word) {
 
     this.choseCorrectLetter = false;
 
-    // this.savedWordArray = []
+    this.savedWordArray = []
 
     // creating a savedWordArray of blanks. 
     // These blanks will be replaced as words are guessed.
@@ -66,13 +67,27 @@ function Word(word) {
         this.newWordArray[i] = this.wordArray[i].split("");
         // now newWordArray = [ [T,h,i,s] , [i,s], [a], [s,e,n,t,e,n,c,e] ]
 
-        // Looping through letters and creating the savedWordArray
-        for (j = 0; j < newWordArray[i]; j++) {
-            this.savedWordArray[i][j] = "_";
-        }
+        this.savedWordArray.push([]);
+        // console.log(this.savedWordArray);
 
-        
+
+        // Looping through letters and creating the savedWordArray
+        for (j = 0; j < this.newWordArray[i].length; j++) {
+            // this.savedWordArray[i][j] = "_";
+            this.savedWordArray[i].push("_");
+            // console.log(this.savedWordArray);
+        } 
     }
+
+    // for (i = 0; i < this.wordArray.length; i++) {
+    //     for (j = 0; j < this.newWordArray[i]; j++) {
+    //         // this.savedWordArray[i][j] = "_";
+    //         this.savedWordArray
+            
+    //     }
+    // }
+
+    // console.log(this.savedWordArray);
 
     // loops through each word of the phrase
     for (i = 0; i < this.wordArray.length; i++) {
@@ -109,6 +124,12 @@ function Word(word) {
                 // loggedLetter property will equal newWordArray[i][j]
                 this.objectWordArray[i][j].displayLetter();
 
+                if (this.objectWordArray[i][j].guessCorrect === true) {
+                    // this.savedWordArray[i][j] = this.savedWordArray[i].splice(j, 1, objectWordArray[i][j]);
+                    this.savedWordArray[i].splice(j, 1, this.objectWordArray[i][j].loggedLetter);
+                    // console.log(this.savedWordArray);
+                }
+
                 // holds the loggedLetter property of the Letter object (letter to be displayed)
                 var tempLetter = this.objectWordArray[i][j].loggedLetter;
 
@@ -120,18 +141,22 @@ function Word(word) {
             // loggedWordArray consists of a number of strings that equal the words of the phrase to be guessed.
             // These strings will contain characters, blanks, or both.
             // e.g. ['t _ _ _', '_ _', '_', '_ _ _ t _ _ _ _']
-            this.loggedWordArray[i] = this.objectWordArray2[i].join(" ");
+            // this.loggedWordArray[i] = this.objectWordArray2[i].join(" ");
+            this.loggedWordArray[i] = this.savedWordArray[i].join(" ");
 
             // console.log(this.objectWordArray[i].guessCorrect);
 
 
         }
 
+        // this.saveWord(this.objectWordArray);
+
         // console.log(this.loggedWordArray);
 
         // displayedWord will take the blanks and concatenate them into one big string.
         // e.g. t _ _ _   _ _   _   _ _ _ t _ _ _ _
         this.displayedWord = this.loggedWordArray.join("   ");
+        // this.displayedWord = this.savedWordArray.join("   ");
 
         // // console.log(this.newWordArray);
 
@@ -210,10 +235,28 @@ function Word(word) {
 
     // console.log(argument);
 
-    this.saveWord = function(loggedWordArray) {
-        this.savedWordArray = loggedWordArray;
+    // this.saveWord = function(objectWordArray) {
+    //     // this.savedWordArray = loggedWordArray;
 
-    }
+    //     /* 
+    //     1. for loggedWordArray, blank(s) have been replaced by a properly guessed letter.
+    //     2. Let's assume that savedWordArray already has properly guessed letters.
+    //     3. I need to replace the blanks of the savedWordArray with the properly guessed letters of loggedWordArray.
+    //     4. But, since loggedWordArray only holds the currently guessed letters, I must ensure that only the properly guessed letters get
+    //         placed into the savedWordArray.
+    //     */
+
+
+
+    //     for (i = 0; i < objectWordArray.length; i++) {
+    //         for (j = 0; j < objectWordArray[i].length; j++) {
+    //             if (objectWordArray[i][j].guessCorrect === true) {
+    //                 this.savedWordArray[i][j] = this.savedWordArray[i].splice(j, 1, objectWordArray[i][j]);
+    //             }
+    //         }
+    //     }
+
+    // }
 
 }
 
