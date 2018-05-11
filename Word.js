@@ -29,13 +29,11 @@ Troubleshooting:
 
 // NOTE: The word can be a phrase.
 function Word(word) {
-    // this.letterArray = word.split("");
 
     // This will hold each word of the phrase.
     // e.g. word = "This is a sentence"
     // wordArray = ['This', 'is', 'a', 'sentence']
     this.wordArray = word.split(" ");
-    // this.letterArray = [];
 
     // will hold each word of the phrase as an array.
     // Each of these smaller arrays will hold the each character of a word as an element.
@@ -68,26 +66,14 @@ function Word(word) {
         // now newWordArray = [ [T,h,i,s] , [i,s], [a], [s,e,n,t,e,n,c,e] ]
 
         this.savedWordArray.push([]);
-        // console.log(this.savedWordArray);
 
 
         // Looping through letters and creating the savedWordArray
         for (j = 0; j < this.newWordArray[i].length; j++) {
-            // this.savedWordArray[i][j] = "_";
             this.savedWordArray[i].push("_");
-            // console.log(this.savedWordArray);
         } 
     }
 
-    // for (i = 0; i < this.wordArray.length; i++) {
-    //     for (j = 0; j < this.newWordArray[i]; j++) {
-    //         // this.savedWordArray[i][j] = "_";
-    //         this.savedWordArray
-            
-    //     }
-    // }
-
-    // console.log(this.savedWordArray);
 
     // loops through each word of the phrase
     for (i = 0; i < this.wordArray.length; i++) {
@@ -97,8 +83,6 @@ function Word(word) {
         // loops through each letter of each word
         for (j = 0; j < this.newWordArray[i].length; j++) {
             var wordLetter = new Letter(this.newWordArray[i][j]);
-            // wordLetter.displayLetter();
-            // this.objectWordArray[i][j] = (wordLetter.loggedLetter);
             this.objectWordArray[i].push(wordLetter);
         }
 
@@ -125,9 +109,7 @@ function Word(word) {
                 this.objectWordArray[i][j].displayLetter();
 
                 if (this.objectWordArray[i][j].guessCorrect === true) {
-                    // this.savedWordArray[i][j] = this.savedWordArray[i].splice(j, 1, objectWordArray[i][j]);
                     this.savedWordArray[i].splice(j, 1, this.objectWordArray[i][j].loggedLetter);
-                    // console.log(this.savedWordArray);
                 }
 
                 // holds the loggedLetter property of the Letter object (letter to be displayed)
@@ -144,26 +126,15 @@ function Word(word) {
             // this.loggedWordArray[i] = this.objectWordArray2[i].join(" ");
             this.loggedWordArray[i] = this.savedWordArray[i].join(" ");
 
-            // console.log(this.objectWordArray[i].guessCorrect);
-
-
         }
-
-        // this.saveWord(this.objectWordArray);
-
-        // console.log(this.loggedWordArray);
 
         // displayedWord will take the blanks and concatenate them into one big string.
         // e.g. t _ _ _   _ _   _   _ _ _ t _ _ _ _
         this.displayedWord = this.loggedWordArray.join("   ");
-        // this.displayedWord = this.savedWordArray.join("   ");
-
-        // // console.log(this.newWordArray);
 
         // shows the displayed word to the console.
         console.log("\n" + this.displayedWord);
 
-        // console.log(this.objectWordArray2);
     }
 
         
@@ -185,23 +156,13 @@ function Word(word) {
 
                 // Loops through each letter
                 for (j = 0; j < this.newWordArray[i].length; j++) {
-                    // this.objectWordArray[i][j].guessCorrect === false;
 
                     // checks if the letter of the word to be guessed is equal to the letter user entered.
                     this.objectWordArray[i][j].checkLetter(argument);
-                    /*
-                    What this does:
-                    1. If the argument equals the letter, then sets the letter's property guessCorrect = true
-                    */
-
-                    // var choseCorrectLetter = false
-
+                    /* What this does:
+                        1. If the argument equals the letter, then sets the letter's property guessCorrect = true*/
 
                     // check if the letter user entered is correct.
-                    // if (this.objectWordArray[i][j].guessCorrect === true) {
-                    //     this.choseCorrectLetter = true;
-                    // }
-
                     if (this.newWordArray[i].includes(argument)) {
                         this.choseCorrectLetter = true;
                     }
@@ -242,10 +203,6 @@ function Word(word) {
            
     }
 
-    // console.log(argument);
-
-    // this.saveWord = function(objectWordArray) {
-    //     // this.savedWordArray = loggedWordArray;
 
     //     /* 
     //     1. for loggedWordArray, blank(s) have been replaced by a properly guessed letter.
@@ -256,23 +213,16 @@ function Word(word) {
     //     */
 
 
-
-    //     for (i = 0; i < objectWordArray.length; i++) {
-    //         for (j = 0; j < objectWordArray[i].length; j++) {
-    //             if (objectWordArray[i][j].guessCorrect === true) {
-    //                 this.savedWordArray[i][j] = this.savedWordArray[i].splice(j, 1, objectWordArray[i][j]);
-    //             }
-    //         }
-    //     }
-
-    // }
-
 }
 
    
 // }
 
 module.exports = Word;
+
+
+
+////////////////////////////////////////////////////////////////////////////////////
 
 // Testing stuff
 // var newWord = new Word("Banana");
