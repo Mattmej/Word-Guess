@@ -185,6 +185,8 @@ function Word(word) {
 
                 // Loops through each letter
                 for (j = 0; j < this.objectWordArray[i].length; j++) {
+                    // this.objectWordArray[i][j].guessCorrect === false;
+
 
                     this.objectWordArray[i][j].checkLetter(argument);
                     /*
@@ -224,6 +226,7 @@ function Word(word) {
 
             else {
                 console.log("Correct!");
+                this.choseCorrectLetter = false;
             }
 
             this.wordFromLetters();
@@ -263,18 +266,18 @@ function Word(word) {
    
 // }
 
-// module.exports = Word;
+module.exports = Word;
 
 // Testing stuff
 // var newWord = new Word("Banana");
 // console.log(newWord.wordLetterArray)
 // newWord.wordFromLetters();
 
-var newWord = new Word("this is a sentence")
+// var newWord = new Word("this is a sentence")
 // console.log(newWord.wordLetterArray);
 // newWord.wordFromLetters()
 
-newWord.checkUserArgs(process.argv[2]);
+// newWord.checkUserArgs(process.argv[2]);
 // console.log(process.argv[2]);
 
 // console.log(newWord.objectWordArray[1]);
