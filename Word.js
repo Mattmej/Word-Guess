@@ -162,12 +162,14 @@ function Word(word) {
    
 }
 
+module.exports = Word;
+
 // Testing stuff
 // var newWord = new Word("Banana");
 // console.log(newWord.wordLetterArray)
 // newWord.wordFromLetters();
 
-var newWord = new Word("This is a sentence")
+var newWord = new Word("this is a sentence")
 // console.log(newWord.wordLetterArray);
 // newWord.wordFromLetters()
 
