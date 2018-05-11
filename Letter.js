@@ -53,9 +53,9 @@ function Letter(letter) {
             // console.log(this.guessCorrect);
         }
 
-        else {
-            console.log("Incorrect!");
-        }
+        // else {
+        //     console.log("Incorrect!");
+        // }
     }
 
 }

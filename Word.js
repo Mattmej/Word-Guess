@@ -54,6 +54,8 @@ function Word(word) {
     // The word (and/or blanks) to be displayed to the console.
     this.displayedWord;
 
+    this.choseCorrectLetter = false;
+
     // loops through each word of the phrase
     for (i = 0; i < this.wordArray.length; i++) {
             
@@ -149,20 +151,55 @@ function Word(word) {
                     1. If the argument equals the letter, then sets the letter's property guessCorrect = true
                     */
 
+                    // var choseCorrectLetter = false
+
+                    if (this.objectWordArray[i][j].guessCorrect === true) {
+                        this.choseCorrectLetter = true;
+                    }
+
+                    else {
+                        continue;
+                    }
+
                 }
+
+                // Now I need to create code that tells the user their guess is incorrect
+                // if their selected character is not in the word/phrase.
+
+                // Maybe I can make a conditional statement that checks if the guessCorrect = false
+                // for all Letter items in the objectWordArray subarrays.
+
+                // x
+                // if one of the subarrays includes the guessed letter...
+                // if (objectWordArray[i].includes(argument)) {
+
                 
+
+            }
+
+            if (this.choseCorrectLetter === false) {
+                console.log("Incorrect!");
+            }
+
+            else {
+                console.log("Correct!");
             }
 
             this.wordFromLetters();
+                
         }
+
+           
+    }
 
         // console.log(argument);
 
-    }
-   
 }
 
-module.exports = Word;
+   
+// }
+
+// module.exports = Word;
 
 // Testing stuff
 // var newWord = new Word("Banana");
