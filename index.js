@@ -11,6 +11,7 @@ var randIndex = Math.floor(Math.random * wordList.length);
 
 var currentWord = new Word(wordList[randIndex]);
 
+// Asks the user for input...
 inquirer.prompt([
     {
         type: "input",
@@ -19,8 +20,11 @@ inquirer.prompt([
         // validate: function
     },
 ])
+
+// ...then performs the following:
 .then (function(response) {
 
+    currentWord.checkUserArgs(response.userGuess);
 
 
 
