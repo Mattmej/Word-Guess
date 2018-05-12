@@ -48,7 +48,8 @@ function askLetter() {
 
     else {
 
-        console.log("\nNumber of tries left: " + tries + "\n");
+        console.log("\nNumber of tries left: " + tries);
+        console.log("Guessed Letters: " + currentWord.guessedLetters.join(", ") + "\n");
 
         // Asks the user for input...
         inquirer.prompt([
@@ -66,7 +67,7 @@ function askLetter() {
 
             // tries--;
 
-            if (response.userGuess.length === 1) {
+            if (response.userGuess.length === 1 && !currentWord.guessedLetters.includes(response.userGuess)) {
                 tries--;
             }
             currentWord.checkUserArgs(response.userGuess);

@@ -55,7 +55,9 @@ function Word(word) {
 
     this.choseCorrectLetter = false;
 
-    this.savedWordArray = []
+    this.savedWordArray = [];
+
+    this.guessedLetters = [];
 
     // creating a savedWordArray of blanks. 
     // These blanks will be replaced as words are guessed.
@@ -149,7 +151,13 @@ function Word(word) {
             console.log("Please enter a single character!");
         }
 
+        else if (this.guessedLetters.includes(argument)) {
+            console.log("This letter has already been guessed!");
+        }
+
         else {
+
+            this.guessedLetters.push(argument);
 
             // Loops through each word
             for (i = 0; i < this.objectWordArray.length; i++) {
