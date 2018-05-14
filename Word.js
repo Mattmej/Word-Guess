@@ -129,10 +129,10 @@ function Word(word) {
                 }
 
                 // holds the loggedLetter property of the Letter object (letter to be displayed)
-                var tempLetter = this.objectWordArray[i][j].loggedLetter;
+                // var tempLetter = this.objectWordArray[i][j].loggedLetter;
 
                 // puts the loggedLetter property of the Letter object into an array of the objectWordArray2
-                this.objectWordArray2[i].push(tempLetter)
+                // this.objectWordArray2[i].push(tempLetter)
 
             }
 
