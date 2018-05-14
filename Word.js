@@ -47,23 +47,27 @@ function Word(word) {
     // objectWordArray = [ [{obj},{obj},{obj},{obj}] , [{obj},{obj}] , [{obj}] , [{obj},{obj},{obj},{obj},{obj},{obj},{obj},{obj}] ]
     this.objectWordArray = [];
 
+    // This array starts as an array of blanks, but these blanks are replaced as words are guessed.
+    // As the checkUserArgs function is run over and over again, this array holds the users' correctly guessed letters.
+    // e.g. word = "This is a sentence" and userGuess = 's'
+    // savedWordArray = [ [_, _, _, s] , [_, s] , [_] , [s, _, _, _, _, _, _, _] ]
+    this.savedWordArray = [];
+
     // This array will hold the Letter objects' displayLetter loggedLetters (see Letter.js)
     // in preparation for displaying to the console.
     // e.g. word = "This is a sentence" and userGuess = 's'
-    // loggedWordArray = [ [_, _, _, s] , [_, s] , [_] , [s, _, _, _, _, _, _, _] ]
+    // loggedWordArray = [ '_ _ _ s' , '_ s' , '_' , 's _ _ _ _ _ _ _' ]
     this.loggedWordArray = [];
 
     // The word (and/or blanks) to be displayed to the console.
-    // e.g. loggedWordArray = [ [_, _, _, s] , [_, s] , [_] , [s, _, _, _, _, _, _, _] ]
+    // e.g. loggedWordArray = [ '_ _ _ s' , '_ s' , '_' , 's _ _ _ _ _ _ _' ]
     // displayedWord =  _ _ _ s   _ s   _   s _ _ _ _ _ _ _   
     this.displayedWord;
 
     // This variable will be set to true if the user enters a correct letter.
     this.choseCorrectLetter = false;
 
-    // This array starts as an array of blanks, but these blanks are replaced as words are guessed.
-    this.savedWordArray = [];
-
+    // This array holds all the letters the user has already guessed.
     this.guessedLetters = [];
 
     // creating a savedWordArray of blanks. 
@@ -77,6 +81,7 @@ function Word(word) {
         // pushes new subarrays into the savedWordArray
         this.savedWordArray.push([]);
 
+        // does the same for the objectWordArray
         this.objectWordArray.push([]);
 
 
@@ -89,6 +94,8 @@ function Word(word) {
 
             // takes each letter in the wordArray sub-arrays and turns those letters into Letter objects.
             var wordLetter = new Letter(this.newWordArray[i][j]);
+
+            // pushes each wordLetter object into the subarrays of the objectWordArray.
             this.objectWordArray[i].push(wordLetter);
         } 
     }
@@ -97,13 +104,8 @@ function Word(word) {
 
     // This function will display the "current status" of the guessed word to the console.
     this.wordFromLetters = function() {
-
-        // Stores a property of each letter object into the newWordArray
         
         for (i = 0; i < this.objectWordArray.length; i++) {
-
-            // pushes a new array into this objectWordArray2
-            // this.objectWordArray2.push([]);
 
             for (j = 0; j < this.objectWordArray[i].length; j++) {
 
@@ -115,7 +117,10 @@ function Word(word) {
                 // depending on whether or not the user guessed the correct letter.
                 this.objectWordArray[i][j].displayLetter();
 
+                // If the user has guessed a letter correctly, then...
                 if (this.objectWordArray[i][j].guessCorrect === true) {
+
+                    // replace the corresponding blank in the savedWordArray with the correctly guessed letter.
                     this.savedWordArray[i].splice(j, 1, this.objectWordArray[i][j].loggedLetter);
                 }
 
@@ -179,7 +184,10 @@ function Word(word) {
                         this.choseCorrectLetter = true;
                     }
 
+                    // If the letter the user entered does not match the current letter, then...
                     else {
+
+                        // The app will continue to loop through the words and letters.
                         continue;
                     }
 
