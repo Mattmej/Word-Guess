@@ -21,7 +21,7 @@ The index.js file is responsible for taking the functionality of Letter.js and W
 
 Contains a constructor function _Letter_ that accepts a parameter _letter_
 
-Properties of _Letter_ object:
+__Properties of _Letter_ object:__
 
 * _guessCorrect_: Boolean. Reads whether or not the letter has been guessed correctly.
 
@@ -71,5 +71,14 @@ __Properties of _Word_ object - Functions:__
     * _displayedWord_ will then update itself by joining the array elements of _loggedWordArray_ into a string and then setting itself equal to that string.
     * _displayedWord_ will then be logged to the console.
 
-* _checkUserArgs_: Checks the user's guessed letter against each __Letter__ object.
+* _checkUserArgs_: Checks the user's guessed letter against each __Letter__ object. Accepts a parameter _argument_, which represents the letter the user will guess.
+    * If the _argument_ parameter's length is not 1, then the user will be told to enter a single character.
+    * If the _guessedLetters_ array contains _argument_, then the user will be told that their letter has already been guessed.
+    * If _argument_ does not meet those two requirements, then...
+        * Pushes _argument_ into the _guessedLetters_ array.
+        * Runs _checkLetter(argument)_ (from __Letter.js__) on each object in _objectWordArray_
+        * If _argument_ is inside _newWordArray_, then _choseCorrectLetter_ will be set to _true_.
+        * If _choseCorrectLetter_ is true, then the console will log "Correct!"
+        * If _choseCorrectLetter_ is false, then the console will log "Incorrect!"
+        * Then _wordFromLetters_ is run.
 
