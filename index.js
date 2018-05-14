@@ -33,7 +33,7 @@ function chooseNewWord() {
     // Sets currentWord to a random word in the wordList
     currentWord = new Word(wordList[randIndex]);
 
-    // The number of tries the user has is the number of characters in the word/phrase plus three.
+    // The number of tries the user has is equal to the number of characters in the word/phrase plus three.
     tries = wordList[randIndex].length + 3;
 
     // Displays the current word's blanks and/or letters to the console.

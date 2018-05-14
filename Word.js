@@ -77,30 +77,22 @@ function Word(word) {
         // pushes new subarrays into the savedWordArray
         this.savedWordArray.push([]);
 
+        this.objectWordArray.push([]);
+
+
 
         // Looping through letters and creating the savedWordArray
         for (j = 0; j < this.newWordArray[i].length; j++) {
 
             // Pushes blanks into each savedWordArray subarray.
             this.savedWordArray[i].push("_");
-        } 
-    }
-
-
-    // loops through each word of the phrase
-    for (i = 0; i < this.wordArray.length; i++) {
-            
-        this.objectWordArray.push([]);
-
-        // loops through each letter of each word
-        for (j = 0; j < this.newWordArray[i].length; j++) {
 
             // takes each letter in the wordArray sub-arrays and turns those letters into Letter objects.
             var wordLetter = new Letter(this.newWordArray[i][j]);
             this.objectWordArray[i].push(wordLetter);
-        }
-
+        } 
     }
+
 
 
     // This function will display the "current status" of the guessed word to the console.
@@ -111,7 +103,7 @@ function Word(word) {
         for (i = 0; i < this.objectWordArray.length; i++) {
 
             // pushes a new array into this objectWordArray2
-            this.objectWordArray2.push([]);
+            // this.objectWordArray2.push([]);
 
             for (j = 0; j < this.objectWordArray[i].length; j++) {
 
