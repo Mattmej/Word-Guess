@@ -208,7 +208,7 @@ function Word(word) {
                 this.choseCorrectLetter = false;
             }
 
-            
+
             // This function will display the "current status" of the guessed word to the console.
             this.wordFromLetters();
                 
@@ -232,6 +232,7 @@ function Word(word) {
    
 // }
 
+// Allows the Word constructor function to be exported.
 module.exports = Word;
 
 

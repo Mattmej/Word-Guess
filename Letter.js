@@ -29,37 +29,51 @@ depending on whether or not the user has guessed the letter. That means the cons
 */
 
 
-
+// Constructor function for a "Letter" object
 function Letter(letter) {
 
+    // This variable reads whether or not the letter object has been guessed correctly.
     this.guessCorrect = false;
+
+    // This variable stores the character that will be displayed to the console.
     this.loggedLetter;
 
+    // This function will either display a letter or a blank to the console.
     this.displayLetter = function() {
+
+        // If this letter was guessed correctly, then...
         if (this.guessCorrect === true) {
+
+            // A letter will be displayed to the console.
             this.loggedLetter = letter;
             // console.log(letter);
         }
 
+        // If the letter was NOT guessed correctly, then...
         else {
+
+            // A blank will be displayed to the console.
             this.loggedLetter = "_";
             // console.log("_");
         }
     }
 
+    // This function will check if the user's guess was a correct guess.
     this.checkLetter = function(guess) {
+
+        // If the user's guess matches the letter object
         if (guess === letter) {
+
+            // Sets guessCorrect to true
             this.guessCorrect = true;
             // console.log(this.guessCorrect);
         }
 
-        // else {
-        //     console.log("Incorrect!");
-        // }
     }
 
 }
 
+// Allows the Letter constructor function to be exported.
 module.exports = Letter;
 
 // Letter("Johnny");
