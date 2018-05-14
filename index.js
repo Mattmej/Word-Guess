@@ -24,7 +24,6 @@ function chooseNewWord() {
 
     currentWord.wordFromLetters();
 
-
     askLetter();
 
 }
@@ -40,6 +39,8 @@ function askLetter() {
 
     if (tries === 0) {
         console.log("\nYou Lose!");
+
+        console.log("Correct Word/Phrase: " + wordList[randIndex] + "\n");
 
         playAgain();
         // return;
