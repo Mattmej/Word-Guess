@@ -82,3 +82,31 @@ __Properties of _Word_ object - Functions:__
         * If _choseCorrectLetter_ is false, then the console will log "Incorrect!"
         * Then _wordFromLetters_ is run.
 
+
+#### index.js
+
+Contains the following important variables:
+* wordList: Array. Contains words that will be randomly picked.
+* tries: Number. The number of tries the user has to guess the correct word.
+* currentWord: String. The word that the user currently has to guess.
+
+__Functions__
+
+* _chooseNewWord_: Randomly chooses a word from the wordList for the user to guess
+    * Randomly chooses a word from the wordList
+    * Makes _currentWord_ a new __Word__ object with the randomly chosen word as the parameter.
+    * sets _tries_ to the length of _currentWord_ plus 3.
+    * Runs the _wordFromLetters_ function (from __Word.js__) on _currentWord_
+    * Runs the _askLetter_ function.
+
+* _askLetter_: Asks the user for input.
+    * If _tries_ ever reaches 0, the user loses.
+    * The _inquirer_ node package asks the user for a letter.
+    * If the user entered a string of length 1, then the number of tries will go down by 1.
+    * Runs the _checkUserArgs_ function (from __Word.js__) with the user's guess as a parameter on _currentWord_
+    * If the user still has letter to guess, then _askLetter_ is run again.
+    * If the user has guessed all the letters in the current word, then they win!
+    * After the user wins or loses, they are asked if they want to play again via the _inquirer_ node package. 
+        * If the answer is "yes," then _chooseNewWord_ is run again. 
+        * If the answer is "no," then the application closes.
+
