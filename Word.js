@@ -147,16 +147,20 @@ function Word(word) {
         
         // we will make argument = process.argv[2]
 
+        // If the user enters anything other than a single character, then...
         if (argument.length != 1) {
             console.log("Please enter a single character!");
         }
 
+        // If the user enters a letter that has already been guessed, then...
         else if (this.guessedLetters.includes(argument)) {
             console.log("This letter has already been guessed!");
         }
 
+        // Otherwise...
         else {
 
+            // Push the letter the user has guessed into the guessedLetters array
             this.guessedLetters.push(argument);
 
             // Loops through each word
@@ -172,6 +176,8 @@ function Word(word) {
 
                     // check if the letter user entered is correct.
                     if (this.newWordArray[i].includes(argument)) {
+
+                        // This variable will be set to true if the user enters a correct letter.
                         this.choseCorrectLetter = true;
                     }
 
@@ -187,23 +193,23 @@ function Word(word) {
                 // Maybe I can make a conditional statement that checks if the guessCorrect = false
                 // for all Letter items in the objectWordArray subarrays.
 
-                // x
-                // if one of the subarrays includes the guessed letter...
-                // if (objectWordArray[i].includes(argument)) {
-
-                
-
             }
 
+            // If the user did not choose a correct letter, then...
             if (this.choseCorrectLetter === false) {
                 console.log("Incorrect!");
             }
 
+            // If the user DID choose a correct letter, then...
             else {
                 console.log("Correct!");
+
+                // Sets this variable back to false again to check for the next letter the user enters.
                 this.choseCorrectLetter = false;
             }
 
+            
+            // This function will display the "current status" of the guessed word to the console.
             this.wordFromLetters();
                 
         }

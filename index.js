@@ -2,7 +2,7 @@ var inquirer = require("inquirer");
 var Letter = require("./Letter.js");
 var Word = require("./Word.js");
 
-var wordList = ["sesquipedalian", "harmonious", "hot dog on a stick", "cowboy", "hereafter"];
+var wordList = ["sesquipedalian", "harmonious", "hot dog on a stick", "cowboy", "hereafter", "pyrite", "echolocation", "cacophony", "alternative", "an apple a day"];
 
 // var tries = 10;
 var tries;
