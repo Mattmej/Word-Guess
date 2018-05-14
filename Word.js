@@ -47,9 +47,6 @@ function Word(word) {
     // objectWordArray = [ [{obj},{obj},{obj},{obj}] , [{obj},{obj}] , [{obj}] , [{obj},{obj},{obj},{obj},{obj},{obj},{obj},{obj}] ]
     this.objectWordArray = [];
 
-    // a "temporary array" meant to ease the transition from objectWordArray to loggedWordArray.
-    this.objectWordArray2 = [];
-
     // This array will hold the Letter objects' displayLetter loggedLetters (see Letter.js)
     // in preparation for displaying to the console.
     // e.g. word = "This is a sentence" and userGuess = 's'
@@ -64,6 +61,7 @@ function Word(word) {
     // This variable will be set to true if the user enters a correct letter.
     this.choseCorrectLetter = false;
 
+    // This array starts as an array of blanks, but these blanks are replaced as words are guessed.
     this.savedWordArray = [];
 
     this.guessedLetters = [];
@@ -76,11 +74,14 @@ function Word(word) {
         this.newWordArray[i] = this.wordArray[i].split("");
         // now newWordArray = [ [T,h,i,s] , [i,s], [a], [s,e,n,t,e,n,c,e] ]
 
+        // pushes new subarrays into the savedWordArray
         this.savedWordArray.push([]);
 
 
         // Looping through letters and creating the savedWordArray
         for (j = 0; j < this.newWordArray[i].length; j++) {
+
+            // Pushes blanks into each savedWordArray subarray.
             this.savedWordArray[i].push("_");
         } 
     }
@@ -114,8 +115,6 @@ function Word(word) {
 
             for (j = 0; j < this.objectWordArray[i].length; j++) {
 
-                // var tempLetter = this.objectWordArray[i][j].displayLetter();
-
                 // If the guessCorrect parameter is true for the object, then the Letter object's
                 // loggedLetter property will equal newWordArray[i][j]
 
@@ -128,18 +127,11 @@ function Word(word) {
                     this.savedWordArray[i].splice(j, 1, this.objectWordArray[i][j].loggedLetter);
                 }
 
-                // holds the loggedLetter property of the Letter object (letter to be displayed)
-                // var tempLetter = this.objectWordArray[i][j].loggedLetter;
-
-                // puts the loggedLetter property of the Letter object into an array of the objectWordArray2
-                // this.objectWordArray2[i].push(tempLetter)
-
             }
 
             // loggedWordArray consists of a number of strings that equal the words of the phrase to be guessed.
             // These strings will contain characters, blanks, or both.
             // e.g. ['t _ _ _', '_ _', '_', '_ _ _ t _ _ _ _']
-            // this.loggedWordArray[i] = this.objectWordArray2[i].join(" ");
             this.loggedWordArray[i] = this.savedWordArray[i].join(" ");
 
         }
