@@ -76,11 +76,3 @@ function Letter(letter) {
 // Allows the Letter constructor function to be exported.
 module.exports = Letter;
 
-// Letter("Johnny");
-
-// var char1 = new Letter("J");
-
-// char1.checkLetter("J");
-// char1.displayLetter();
-
-// Letter("J").checkLetter("J");

@@ -48,10 +48,6 @@ function chooseNewWord() {
 chooseNewWord();
 
 
-
-
-// var guessString = "";
-
 // This is the function that will ask the user to enter a letter.
 function askLetter() {
 
