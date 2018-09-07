@@ -110,3 +110,12 @@ __Functions__
         * If the answer is "yes," then _chooseNewWord_ is run again. 
         * If the answer is "no," then the application closes.
 
+<br/>
+<br/>
+
+#### App in Action
+
+First, the user runs the app by navigating to the app's root folder and running the command "node index.js." Running this command displays the number of letters in the word to be guessed as well as the number of tries the user has left to guess the letters in the word. 
+
+![start_app]()
+
