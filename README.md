@@ -117,5 +117,28 @@ __Functions__
 
 First, the user runs the app by navigating to the app's root folder and running the command "node index.js." Running this command displays the number of letters in the word to be guessed as well as the number of tries the user has left to guess the letters in the word. 
 
-![start_app]()
+![start_app](https://github.com/Mattmej/Word-Guess/blob/master/gifs/start_app.gif)
+
+<br/>
+<br/>
+
+The user can then begin guessing the word's letters by entering them into the command line and pressing "enter." The application will tell the user if their guess is correct or incorrect. The letters the user has already guessed will be displayed under the "guessed letters" section.
+
+![correct_and_incorrect](https://github.com/Mattmej/Word-Guess/blob/master/gifs/correct_and_incorrect.gif)
+
+<br/>
+<br/>
+
+If the user guesses all of the correct letters in the word, then the user wins.
+
+![user_wins](https://github.com/Mattmej/Word-Guess/blob/master/gifs/user_wins.gif)
+
+<br/>
+<br/>
+
+However, if the user runs out of tries in the process of guessing the word's correct letters, then the user loses.
+
+![user_loses](https://github.com/Mattmej/Word-Guess/blob/master/gifs/user_loses.gif)
+
+
 
