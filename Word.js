@@ -236,27 +236,6 @@ function Word(word) {
 }
 
    
-// }
-
 // Allows the Word constructor function to be exported.
 module.exports = Word;
 
-
-
-////////////////////////////////////////////////////////////////////////////////////
-
-// Testing stuff
-// var newWord = new Word("Banana");
-// console.log(newWord.wordLetterArray)
-// newWord.wordFromLetters();
-
-// var newWord = new Word("this is a sentence")
-// console.log(newWord.wordLetterArray);
-// newWord.wordFromLetters()
-
-// newWord.checkUserArgs(process.argv[2]);
-// console.log(process.argv[2]);
-
-// console.log(newWord.objectWordArray[1]);
-// console.log(newWord.objectWordArray[0]);
-// console.log(newWord.newWordArray);

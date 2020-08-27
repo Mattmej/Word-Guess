@@ -19,8 +19,6 @@ var currentWord;
 // This variable will hold a random index number.
 var randIndex;
 
-// var randNum = Math.floor(Math.random * 10) => Random number from 0 to 9.
-
 
 
 // This function will randomly choose a word from the wordList for the user to guess.
