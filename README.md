@@ -19,7 +19,7 @@ The index.js file is responsible for taking the functionality of Letter.js and W
 
 #### Letter.js
 
-Contains a constructor function _Letter_ that accepts a parameter _letter_
+Contains a constructor function _Letter_ that accepts a parameter _letter_.
 
 __Properties of _Letter_ object:__
 
@@ -37,10 +37,10 @@ __Properties of _Letter_ object:__
 
 #### Word.js
 
-Contains a constructor function _Word_ that accepts a parameter _word_
-For the purposes of this section, I will set _word_ to "this is a sentence"
+Contains a constructor function _Word_ that accepts a parameter _word_.
+For the purposes of this section, I will set _word_ to "this is a sentence."
 
-__Properties of _Word_ object - non-functions:__
+__Properties of _Word_ object:__
 
 * _wordArray_: Array. Each element holds one word of the word or phrase stored in the _word_ parameter.
     * e.g. ['this', 'is', 'a', 'sentence']
@@ -62,7 +62,7 @@ __Properties of _Word_ object - non-functions:__
 * _guessedLetters_: Array. Holds all of the letters that the user has already guessed.
 
 
-__Properties of _Word_ object - Functions:__
+__Methods of _Word_ object:__
 
 * _wordFromLetters_: Displays the current status of the guessed word to the console.
     * Runs the _displayLetter_ function on each object of the _objectWordArray_.
