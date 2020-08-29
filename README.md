@@ -95,7 +95,7 @@ __Functions__
 * _chooseNewWord_: Randomly chooses a word from the wordList for the user to guess
     * Randomly chooses a word from the wordList
     * Makes _currentWord_ a new __Word__ object with the randomly chosen word as the parameter.
-    * sets _tries_ to the length of _currentWord_ plus 3.
+    * sets _tries_ equal to the length of _currentWord_ plus 3.
     * Runs the _wordFromLetters_ function (from __Word.js__) on _currentWord_
     * Runs the _askLetter_ function.
 
@@ -123,6 +123,8 @@ First, the user runs the app by navigating to the app's root folder and running 
 <br/>
 
 The user can then begin guessing the word's letters by entering them into the command line and pressing "enter." The application will tell the user if their guess is correct or incorrect. The letters the user has already guessed will be displayed under the "guessed letters" section.
+
+If the user chooses a letter that has already been guessed, the application will inform them that the letter has already been guessed, and the number of tries will not decrease. The user will then have the opportunity to guess again.
 
 ![correct_and_incorrect](https://github.com/Mattmej/Word-Guess/blob/master/gifs/correct_and_incorrect.gif)
 
