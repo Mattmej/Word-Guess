@@ -4,6 +4,12 @@
 
 This application is a word-guessing game similar to hangman. The application can be started by running index.js with Node on the command line. This application showcases modularity in order to reduce clutter and better structure the logic of every file.
 
+### Installation
+
+Make sure that the latest version of _git_ is installed to your operating system, then navigate to the directory where you wish to install the application and run the following command on the command line:
+
+> git clone https://github.com/Mattmej/Word-Guess
+
 ### Requirements
 
 * Node.js
