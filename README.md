@@ -4,16 +4,23 @@
 
 This application is a word-guessing game similar to hangman. The application can be started by running index.js with Node on the command line. This application showcases modularity in order to reduce clutter and better structure the logic of every file.
 
+### Requirements
+
+* Git (https://git-scm.com/)
+* Node.js (https://nodejs.org/en/)
+* The "inquirer" node package (https://www.npmjs.com/package/inquirer)
+
 ### Installation
 
-Make sure that the latest version of _git_ is installed to your operating system, then navigate to the directory where you wish to install the application and run the following command on the command line:
+Make sure that the latest version of _Git_ is installed to your operating system, then navigate to the directory where you wish to install the application and run the following command on the command line:
 
 > git clone https://github.com/Mattmej/Word-Guess
 
-### Requirements
+To run the application, ensure that both _Node.js_ and the _inquirer_ node package are installed, then navigate to the application's root folder and run the following command: 
 
-* Node.js
-* The "inquirer" node package
+> node index.js
+
+More information on the application's functionality can be found in the __App in Action__ section of this readme.
 
 ### File Structure
 
