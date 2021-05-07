@@ -18,6 +18,6 @@
   "homepage": "https://github.com/Mattmej/Word-Guess#readme",
   "dependencies": {
     "inquirer": "^5.2.0",
-    "lodash": "^4.17.20"
+    "lodash": "^4.17.21"
   }
 }
